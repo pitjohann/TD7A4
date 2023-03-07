@@ -1,0 +1,22 @@
+version: '3'
+services:
+    web:
+        build: .
+        ports:
+            - 5000:5000
+        networks:
+            - nettd6
+        volumes:
+            - /mnt/c/esilv/a4/s8/testcloud/test.txt:/app/test.txt
+    mymongo:
+        image: mongo
+        networks:
+            - nettd6
+        volumes: 
+            - volumeTD6:/data/db
+networks:
+    nettd6:
+        driver: bridge
+        
+volumes:
+    volumeTD6:
